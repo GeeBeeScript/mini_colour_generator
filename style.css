@@ -67,13 +67,9 @@ instead.  */
     letter-spacing: 0.05rem;
     font-weight: 500;
     color: #101014;
-    /* transition: all 0.1s ease; */
+    transition: all 0.1s ease;
 }
 
-.txt:hover {
-    border-bottom: 2px solid powderblue;
-    color: rgb(23, 51, 56);
-}
 
 .txt-active {
     border-bottom: 2px solid powderblue;
@@ -130,6 +126,7 @@ main > section {
     color: #18b618;
     color: #a0522d;
     color: #c0c0c0;
+    color: #b0e0e6;
 }
 
 
