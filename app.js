@@ -1,3 +1,4 @@
+
 const simpleOption = document.querySelector(".simple-option");
 const hexOption = document.querySelector(".hex-option");
 const main = document.querySelector("main");
@@ -14,36 +15,52 @@ const colourArr = [
 ];
 let option = "simple";
 
-
 simpleOption.addEventListener("click", function () {
-  hexOption.classList.remove("txt-active")
-  simpleOption.classList.add("txt-active")
-  option = "simple"
-  console.log("hello");
-  
-})
+  hexOption.classList.remove("txt-active");
+  simpleOption.classList.add("txt-active");
+  option = "simple";
+});
 
 hexOption.addEventListener("click", function () {
-  simpleOption.classList.remove("txt-active")
-  hexOption.classList.add("txt-active")
-  option = "hex"
-  console.log("hi");
-  
-})
+  simpleOption.classList.remove("txt-active");
+  hexOption.classList.add("txt-active");
+  option = "hex";
+});
 
 function generateRandomChar() {
-  const alphaNum = "abcdefghijklmnopqrstuvwxyz0123456789";
-  const random = Math.floor(Math.random() * 36);
+  const alphaNum = "abcdef0123456789";
+  const random = Math.floor(Math.random() * alphaNum.length);
   const selectRandom = alphaNum[random];
-  console.log(selectRandom, random);
   return selectRandom;
 }
 
 changeColour.addEventListener("click", function () {
-  const randomVal = Math.floor(Math.random() * 6);
-  const randomColourOption = colourArr[randomVal];
-  console.log(randomVal);
-  console.log(randomColourOption);
-  bgColourValue.textContent = randomColourOption;
-  main.style.backgroundColor = randomColourOption;
+  if (option === "simple") {
+    const randomVal = Math.floor(Math.random() * colourArr.length);
+    const randomColourOption = colourArr[randomVal];
+    bgColourValue.textContent = randomColourOption;
+    main.style.backgroundColor = randomColourOption;
+  } else if (option === "hex") {
+    // firstValue = generateRandomChar();
+    // secondValue = generateRandomChar();
+    // thirdValue = generateRandomChar();
+    // fourthValue = generateRandomChar();
+    // fifthValue = generateRandomChar();
+    // sixthValue = generateRandomChar();
+    // hexVal = `#${firstValue}${secondValue}${thirdValue}${fourthValue}${fifthValue}${sixthValue}`;
+    // This is an alternative to the above
+    const alphaNum = "abcdef0123456789";
+    hexVal = "#"
+    for (let i = 0; i < 6; i++) {
+      const random = Math.floor(Math.random() * alphaNum.length);
+      const selectRandom = alphaNum[random];
+      hexVal += selectRandom
+    }
+    main.style.backgroundColor = hexVal;
+    bgColourValue.textContent = hexVal;
+  } else {
+    return
+  }
 });
+
+generateRandomChar();
